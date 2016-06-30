@@ -1,0 +1,6 @@
+framework module BeaconSDK2 {
+  umbrella header "BeaconSDK2.h"
+
+  export *
+  module * { export * }
+}

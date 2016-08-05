@@ -290,7 +290,7 @@ static AXABeaconManager *instance = nil;
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     if (central.state != CBCentralManagerStatePoweredOn) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"需要打开蓝牙" delegate:self cancelButtonTitle:@"" otherButtonTitles:nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Please turn on Bluetooth" delegate:self cancelButtonTitle:@"" otherButtonTitles:nil, nil];
         [alertView show];
     }
 }

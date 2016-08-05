@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9E0AB2ADDFCD033BB01BA29AB578A54E3F486DA7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "09686245D70D56C4C215B41BC8F064AF409E001D" : 0,
+    "197DDF93EB5377010D981915055D02C4B99657B7" : 0,
+    "9E0AB2ADDFCD033BB01BA29AB578A54E3F486DA7" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "51B82FE6-E9F4-4E7A-96F4-2A75E8526E1D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "09686245D70D56C4C215B41BC8F064AF409E001D" : "AXABeacon-iOS-SDK",
+    "197DDF93EB5377010D981915055D02C4B99657B7" : "AXABeaconSDK",
+    "9E0AB2ADDFCD033BB01BA29AB578A54E3F486DA7" : "BeaconSDK2-Demo\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AXASDK",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Demo\/AXASDK.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/github.com\/AXAET\/AXABeacon-iOS-SDK.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "09686245D70D56C4C215B41BC8F064AF409E001D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/github.com\/AXAET\/AXABeaconSDK.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "197DDF93EB5377010D981915055D02C4B99657B7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/AXAET\/iBeaconSDK2-example-iOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9E0AB2ADDFCD033BB01BA29AB578A54E3F486DA7"
+    }
+  ]
+}

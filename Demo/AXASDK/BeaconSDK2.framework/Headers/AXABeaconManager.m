@@ -24,9 +24,7 @@ static AXABeaconManager *instance = nil;
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CBPeripheral *peripheral;
 @property (nonatomic, strong) NSMutableArray *timerArray;
-/**
- *扫描到的所有ble device
- */
+
 @property (nonatomic, strong) NSMutableArray *discoverDevices;
 
 @end
@@ -289,10 +287,7 @@ static AXABeaconManager *instance = nil;
 #pragma mark - centralManager delegate
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-    if (central.state != CBCentralManagerStatePoweredOn) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Please turn on Bluetooth" delegate:self cancelButtonTitle:@"" otherButtonTitles:nil, nil];
-        [alertView show];
-    }
+
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
@@ -408,10 +403,8 @@ static AXABeaconManager *instance = nil;
         }
     }
     else if (byte[0] == 0x0b) {
-        //设备请求发送密码
     }
     else if (byte[0] == 0x06) {
-        //每次修改一个参数成功的返回值
     }
     else if (byte[0] == 0x0d) {
         if ([self.tagDelegate respondsToSelector:@selector(didModifyPasswordRight)]) {

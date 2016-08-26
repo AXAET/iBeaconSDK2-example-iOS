@@ -219,6 +219,11 @@ static AXABeaconManager *instance = nil;
     [self writeCharacteristic:self.peripheral sUUID:ServiceUUID cUUID:WriteUUID data:data];
 }
 
+- (void)readRssi {
+    if (self.peripheral.state == CBPeripheralStateConnected) {
+        [self.peripheral readRSSI];
+    }
+}
 #pragma mark - private method
 
 - (void)writeCharacteristic:(CBPeripheral *)peripheral sUUID:(NSString *)sUUID cUUID:(NSString *)cUUID data:(NSData *)data {
@@ -415,6 +420,13 @@ static AXABeaconManager *instance = nil;
 
 -(void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral error:(NSError *)error {
 
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(NSError *)error {
+    AXABeacon *beacon = [self findDeviceWithUUIDStr:peripheral.identifier.UUIDString inArray:self.discoverDevices];
+    if ([self.tagDelegate respondsToSelector:@selector(didReadRssi:Beacon:)]) {
+        [self.tagDelegate didReadRssi:RSSI Beacon:beacon];
+    }
 }
 
 #pragma mark - private

@@ -147,7 +147,13 @@
 
 #pragma mark - add in version 1.2
 - (void)didModifyPasswordRight;
-
+/**
+ *  This method returns the result of a @link readRssi call.
+ *
+ *  @param rssi   The current RSSI of the link
+ *  @param beacon AXABeacon
+ */
+- (void)didReadRssi:(NSNumber *)rssi Beacon:(AXABeacon *)beacon;
 @end
 
 @interface AXABeaconManager : NSObject
@@ -283,5 +289,8 @@
 #pragma mark - add in version 1.2
 //send change password which must be length of six, right will return none. no will enter - (void)didWritePassword:(BOOL)correct;
 - (void)writeModifyPassword:(NSString *)originPsw newPSW:(NSString *)newPsw;
+
+//read rssi of the peripheral which has been connected
+- (void)readRssi;
 
 @end

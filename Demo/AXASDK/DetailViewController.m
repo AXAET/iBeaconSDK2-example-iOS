@@ -7,15 +7,8 @@
 //
 
 #import "DetailViewController.h"
-/**
- *  import the CoreBluetooth
- */
-#import <CoreBluetooth/CoreBluetooth.h>
 
-/**
- *  add the code Comply wtih the CBPeripheralDelegate protocol
- */
-@interface DetailViewController () <AXATagManagerDelegate, UITextFieldDelegate, UIAlertViewDelegate, CBPeripheralDelegate>
+@interface DetailViewController () <AXATagManagerDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong) UITextField *uuidTextField;
 @property (nonatomic, strong) UITextField *majorTextField;
 @property (nonatomic, strong) UITextField *minorTextField;
@@ -25,11 +18,6 @@
 @property (nonatomic, strong) UITextField *pswTextField;
 @property (nonatomic, strong) UIButton *resetBtn;
 @property (nonatomic, strong) UIButton *modifyBtn;
-
-/**
- *  retain the connected peripheral
- */
-@property (nonatomic, strong) CBPeripheral *activePeripheral;
 
 @end
 
@@ -49,6 +37,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 
@@ -206,28 +195,22 @@
 
 
     /**
-     *  get the connected peripheral and set the delegate to current viewController
-     */
-    self.activePeripheral = beacon.peripheral;
-    self.activePeripheral.delegate = self;
-    /**
      * make a timer to scheduled timer with a time interval to read RSSI
      * @see twoSecondRead
      * you can change the value of Time Interval what you want.
      */
-    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(twoSecondRead) userInfo:nil repeats:YES];
+//    [NSTimer scheduledTimerWithTimeInterval:0.1 target:[AXABeaconManager sharedManager] selector:@selector(readRssi) userInfo:nil repeats:YES];
 }
 
 - (void)didDiscoverBeacon:(AXABeacon *)beacon {
-    
-    if ([beacon.peripheral isEqual:self.activePeripheral]) {
-        NSLog(@"beacon.rssi == %@", beacon.rssi);
-    }
+
+//        NSLog(@"beacon.rssi == %@", beacon.rssi);
 }
 
 - (void)didDisconnectBeacon:(AXABeacon *)beacon {
     NSLog(@"%@", beacon.name);
-    self.navigationItem.title = @"connected";
+    self.navigationItem.title = @"disconnect";
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didGetProximityUUIDForBeacon:(AXABeacon *)beacon {
@@ -262,6 +245,10 @@
     [[AXABeaconManager sharedManager] resetDevice];
 }
 
+- (void)didReadRssi:(NSNumber *)rssi Beacon:(AXABeacon *)beacon {
+    NSLog(@"RSSI --- %@", rssi);
+}
+
 #pragma mark - private
 
 - (void)handleWriteAndReset:(UIButton *)sender {
@@ -294,32 +281,5 @@
     [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
 }
 
-
-/**
- *  read RSSI
- */
--(void)twoSecondRead {
-    if (self.activePeripheral == nil) {
-        return;
-    }
-    if (self.activePeripheral.state == CBPeripheralStateConnected) {
-        [self.activePeripheral readRSSI];
-    }
-}
-
-/*!
- *  @method peripheral:didReadRSSI:error:
- *
- *  @param peripheral	The peripheral providing this update.
- *  @param RSSI			The current RSSI of the link.
- *  @param error		If an error occurred, the cause of the failure.
- *
- *  @discussion			This method returns the result of a @link readRSSI: @/link call.
- */
-- (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(NSError *)error {
-    NSLog(@"%s", __func__);
-    NSLog(@"RSSI --- %@", RSSI);
-
-}
 
 @end

@@ -20,7 +20,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Beacon List";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"FDA50693-A4E2-4FB1-AFCF-C6EB07647825"] identifier:@"微信"];
+    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"FDA50693-A4E2-4FB1-AFCF-C6EB07647825"] identifier:@"net.axaet.www"];
     [AXABeaconManager sharedManager].beaconDelegate = self;
     [[AXABeaconManager sharedManager] requestAlwaysAuthorization];
     [[AXABeaconManager sharedManager] startRangingBeaconsInRegion:beaconRegion];

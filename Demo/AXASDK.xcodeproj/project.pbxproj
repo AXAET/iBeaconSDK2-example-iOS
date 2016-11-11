@@ -187,6 +187,7 @@
 				TargetAttributes = {
 					E919A2B21B55FD85002E0DE4 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 78NXZ6AKR2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -385,6 +386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_MODULES_AUTOLINK = YES;
+				DEVELOPMENT_TEAM = 78NXZ6AKR2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -407,6 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_MODULES_AUTOLINK = YES;
+				DEVELOPMENT_TEAM = 78NXZ6AKR2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

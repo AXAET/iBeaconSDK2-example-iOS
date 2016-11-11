@@ -25,6 +25,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.uuidTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, CGRectGetWidth(self.view.bounds) - 20, 40)];
+    self.uuidTextField.delegate = self;
+
+
+    self.majorTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, CGRectGetWidth(self.view.bounds) - 20, 40)];
+    self.majorTextField.delegate = self;
+
+
+    self.minorTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, CGRectGetWidth(self.view.bounds) - 20, 40)];
+    self.minorTextField.delegate = self;
+
+
+    self.powerTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, CGRectGetWidth(self.view.bounds) - 20, 40)];
+    self.powerTextField.delegate = self;
+
+
+    self.advInteralTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, CGRectGetWidth(self.view.bounds) - 20, 40)];
+    self.advInteralTextField.delegate = self;
+
+
+    self.nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, CGRectGetWidth(self.view.bounds) - 20, 40)];
+    self.nameTextField.delegate = self;
+    self.nameTextField.text = self.beacon.name;
+
+    self.pswTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, CGRectGetWidth(self.view.bounds) - 20, 40)];
+    self.pswTextField.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -59,51 +86,31 @@
     
     switch (indexPath.section) {
         case 0:
-            [cell.contentView addSubview:textField];
-            textField.text = self.beacon.proximityUUID;
-            self.uuidTextField = textField;
-            self.uuidTextField.delegate = self;
-            
+            [cell.contentView addSubview:self.uuidTextField];
+
             break;
         case 1:
-            [cell.contentView addSubview:textField];
-            textField.text = self.beacon.major;
-            self.majorTextField = textField;
-            self.majorTextField.delegate = self;
-            
+            [cell.contentView addSubview:self.majorTextField];
+
             break;
         case 2:
-            [cell.contentView addSubview:textField];
-            textField.text = self.beacon.minor;
-            self.minorTextField = textField;
-            self.minorTextField.delegate = self;
-            
+            [cell.contentView addSubview:self.minorTextField];
+
             break;
         case 3:
-            [cell.contentView addSubview:textField];
-            textField.text = self.beacon.power;
-            self.powerTextField = textField;
-            self.powerTextField.delegate = self;
-            
+            [cell.contentView addSubview:self.powerTextField];
+
             break;
         case 4:
-            [cell.contentView addSubview:textField];
-            textField.text = self.beacon.advInterval;
-            self.advInteralTextField = textField;
-            self.advInteralTextField.delegate = self;
-            
+            [cell.contentView addSubview:self.advInteralTextField];
+
             break;
         case 5:
-            [cell.contentView addSubview:textField];
-            textField.text = self.beacon.name;
-            self.nameTextField = textField;
-            self.nameTextField.delegate = self;
-            
+            [cell.contentView addSubview:self.nameTextField];
+
             break;
         case 6:
-            [cell.contentView addSubview:textField];
-            self.pswTextField = textField;
-            self.pswTextField.delegate = self;
+            [cell.contentView addSubview:self.pswTextField];
             
             break;
         case 7:
@@ -216,15 +223,20 @@
 - (void)didGetProximityUUIDForBeacon:(AXABeacon *)beacon {
     NSLog(@"uuid: %@", beacon.proximityUUID);
     self.beacon.proximityUUID = beacon.proximityUUID;
+    self.uuidTextField.text = self.beacon.proximityUUID;
     [self.tableView reloadData];
 }
 
 - (void)didGetMajorMinorPowerAdvInterval:(AXABeacon *)beacon {
     NSLog(@"major: %@ minor: %@ power: %@ advInterval: %@", beacon.major, beacon.minor, beacon.power, beacon.advInterval);
     self.beacon.major = beacon.major;
+    self.majorTextField.text = self.beacon.major;
     self.beacon.minor = beacon.minor;
+    self.minorTextField.text = self.beacon.minor;
     self.beacon.power = beacon.power;
+    self.powerTextField.text = self.beacon.power;
     self.beacon.advInterval = beacon.advInterval;
+    self.advInteralTextField.text = self.beacon.advInterval;
     [self.tableView reloadData];
 }
 

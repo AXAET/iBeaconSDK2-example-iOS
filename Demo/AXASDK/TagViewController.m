@@ -37,7 +37,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [AXABeaconManager sharedManager].tagDelegate = self;
-    [[AXABeaconManager sharedManager] startFindBleDevices];
+//    [[AXABeaconManager sharedManager] startFindBleDevices];
 
     /**
      *  @param serviceUUIDs A list of <code>CBUUID</code> objects representing the service(s) to scan for.
@@ -52,6 +52,7 @@
      */
     // @[[CBUUID UUIDWithString:@"FFF0"]] ues your beacon that are advertising any of the services instead , in here just a example.
 //    [[AXABeaconManager sharedManager] startFindBleDevicesWithServices:@[[CBUUID UUIDWithString:@"FFF0"]] options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
+    [[AXABeaconManager sharedManager] startFindBleDevicesWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

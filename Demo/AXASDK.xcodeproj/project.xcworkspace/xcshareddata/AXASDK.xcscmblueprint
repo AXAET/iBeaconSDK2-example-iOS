@@ -12,7 +12,7 @@
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "09686245D70D56C4C215B41BC8F064AF409E001D" : "AXABeacon-iOS-SDK",
     "197DDF93EB5377010D981915055D02C4B99657B7" : "AXABeaconSDK",
-    "9E0AB2ADDFCD033BB01BA29AB578A54E3F486DA7" : "BeaconSDK2-Demo\/"
+    "9E0AB2ADDFCD033BB01BA29AB578A54E3F486DA7" : "iBeaconSDK2-example-iOS\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "AXASDK",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
